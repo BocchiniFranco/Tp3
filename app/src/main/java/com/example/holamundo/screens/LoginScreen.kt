@@ -127,8 +127,10 @@ fun LoginScreen() {
                 .height(64.dp),
             shape = RoundedCornerShape(10.dp),
             colors = OutlinedTextFieldDefaults.colors(
-                focusedBorderColor = Color(0xFF1F41BB),
-                unfocusedBorderColor = Color.LightGray,
+                focusedContainerColor = Color(0xFFF1F4FF), // Fondo cuando lo estas tocando
+                unfocusedContainerColor = Color(0xFFF1F4FF), // Fondo cuando no lo tocas
+                focusedBorderColor = Color(0xFF1F41BB), // Borde azul activo
+                unfocusedBorderColor = Color.Transparent, // Sin borde cuando esta inactivo
             )
         )
 
@@ -144,8 +146,10 @@ fun LoginScreen() {
                 .height(64.dp),
             shape = RoundedCornerShape(10.dp),
             colors = OutlinedTextFieldDefaults.colors(
+                focusedContainerColor = Color(0xFFF1F4FF),
+                unfocusedContainerColor = Color(0xFFF1F4FF),
                 focusedBorderColor = Color(0xFF1F41BB),
-                unfocusedBorderColor = Color.LightGray,
+                unfocusedBorderColor = Color.Transparent,
             ),
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
