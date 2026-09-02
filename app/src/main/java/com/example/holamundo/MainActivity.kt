@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.holamundo.ui.theme.HolaMundoTheme
 import androidx.compose.foundation.layout.Box
+import com.example.holamundo.screens.LoginScreen
 //contenedor visual como una caja transparente
 import com.example.holamundo.screens.WelcomeScreen
 //llamamos a la nueva pantalla
@@ -26,7 +27,8 @@ class MainActivity : ComponentActivity() {
                     // box para que respete el innerPadding
                     // y no pise la barra del reloj/batería del celular
                     Box(modifier = Modifier.padding(innerPadding)) {
-                        WelcomeScreen()
+                        //WelcomeScreen()
+                        LoginScreen()
                     }
                 }
             }

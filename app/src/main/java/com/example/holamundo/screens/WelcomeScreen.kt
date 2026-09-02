@@ -52,7 +52,6 @@ import androidx.compose.ui.text.font.FontFamily
 //*************************BOTONES***************************
 import androidx.compose.foundation.layout.Row
 //como el colum pero horizontal
-
 import androidx.compose.foundation.layout.Arrangement
 //trabaja con el row dividiendo el espacio entre los elementos para quq elas cosas qeden centradas y separadas
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -118,13 +117,16 @@ fun WelcomeScreen() {
 
             //SUB
             Text(
-                text = "Explore all the existing job roles based on your\ninterest and study major",
-                color = Color.DarkGray,
-                fontSize = 14.sp,
+                text = "Explore all the existing job roles based on your interest and study major",
+                color = Color.Black,
+                fontSize = 12.sp,//aca hice trampa por qe no me qedaba igual
+                lineHeight = 14.sp,
+                fontFamily = FontFamily(Font(R.font.poppins_regular)),
                 textAlign = TextAlign.Center
             )
 
         } //FINAL TEXTO
+        Spacer(modifier = Modifier.height(100.dp))
 
         Row(
             modifier = Modifier
