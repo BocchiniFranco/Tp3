@@ -12,7 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.holamundo.ui.theme.HolaMundoTheme
-
+import androidx.compose.foundation.layout.Box
+//contenedor visual como una caja transparente
+import com.example.holamundo.screens.WelcomeScreen
+//llamamos a la nueva pantalla
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,16 +23,16 @@ class MainActivity : ComponentActivity() {
         setContent {
             HolaMundoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    // box para que respete el innerPadding
+                    // y no pise la barra del reloj/batería del celular
+                    Box(modifier = Modifier.padding(innerPadding)) {
+                        WelcomeScreen()
+                    }
                 }
             }
         }
     }
 }
-
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
