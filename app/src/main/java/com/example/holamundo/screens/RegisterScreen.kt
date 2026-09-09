@@ -64,7 +64,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 //trabaja en equipo con KeyboardType para aplicar esa configuracion al teclado
 
 //***************** BOTONES Y FILAS *****************
-import androidx.compose.foundation.layout.Row
+/*import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
@@ -72,6 +72,10 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.layout.size
+*/
+import com.example.holamundo.components.CustomButton
+import com.example.holamundo.components.CustomTextField
+import com.example.holamundo.components.SocialMediaRow
 
 @Composable
 fun RegisterScreen() {
@@ -132,52 +136,36 @@ fun RegisterScreen() {
                 unfocusedBorderColor = Color.Transparent, // Sin borde cuando esta inactivo
             )
         )
-
         Spacer(modifier = Modifier.height(20.dp))
 
         // INPUT PASSWORD
-        OutlinedTextField(
+        CustomTextField(
             value = password,
             onValueChange = { password = it },
-            placeholder = { Text("Password", fontFamily = FontFamily(Font(R.font.poppins_medium))) },
-            modifier = Modifier
-                .width(357.dp)
-                .height(64.dp),
-            shape = RoundedCornerShape(10.dp),
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color(0xFFF1F4FF),
-                unfocusedContainerColor = Color(0xFFF1F4FF),
-                focusedBorderColor = Color(0xFF1F41BB),
-                unfocusedBorderColor = Color.Transparent,
-            ),
-            visualTransformation = PasswordVisualTransformation(),
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
+            placeholderText = "Password",
+            visualTransformation = PasswordVisualTransformation(),//hacemos qe se vea con puntitos
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)//interacccion con el teclado avisando qe es un password
         )
 
         Spacer(modifier = Modifier.height(20.dp))
 
         // INPUT CONFIRM PASSWORD
-        OutlinedTextField(
-            value = confirmPassword,
-            onValueChange = { confirmPassword = it },
-            placeholder = { Text("Confirm Password", fontFamily = FontFamily(Font(R.font.poppins_medium))) },
-            modifier = Modifier
-                .width(357.dp)
-                .height(64.dp),
-            shape = RoundedCornerShape(10.dp),
-            colors = OutlinedTextFieldDefaults.colors(
-                focusedContainerColor = Color(0xFFF1F4FF),
-                unfocusedContainerColor = Color(0xFFF1F4FF),
-                focusedBorderColor = Color(0xFF1F41BB),
-                unfocusedBorderColor = Color.Transparent,
-            ),
-            visualTransformation = PasswordVisualTransformation(),
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
+        CustomTextField(
+            value = confirmPassword,//diferenciamos el estado
+            onValueChange = { confirmPassword = it },//usamos el estado
+            placeholderText = "Confirm password",
+            visualTransformation = PasswordVisualTransformation(),//hacemos qe se vea con puntitos
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)//interacccion con el teclado avisando qe es un password
         )
 
         Spacer(modifier = Modifier.height(40.dp))
 
         // BOTON PRINCIPAL SIGN UP
+        CustomButton(
+            text = "Sign up",
+            onClick = { /* Lógica de registro */ }
+        )
+        /*
         Button(
             onClick = { /* logica de registro futuro */ },
             modifier = Modifier
@@ -196,7 +184,7 @@ fun RegisterScreen() {
                 fontFamily = FontFamily(Font(R.font.poppins_semi_bold))
             )
         }
-
+*/
         Spacer(modifier = Modifier.height(30.dp))
 
         // TEXTO: Already have an account
@@ -222,32 +210,6 @@ fun RegisterScreen() {
         Spacer(modifier = Modifier.height(10.dp))
 
         // FILA DE REDES SOCIALES
-        Row(
-            modifier = Modifier.width(200.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly
-        ) {
-
-            // Icono Google
-            Image(
-                painter = painterResource(id = R.drawable.ic_google),
-                contentDescription = "Registro con Google",
-                modifier = Modifier.size(60.dp)
-            )
-
-            // Icono Facebook
-            Image(
-                painter = painterResource(id = R.drawable.ic_facebook),
-                contentDescription = "Registro con Facebook",
-                modifier = Modifier.size(60.dp)
-            )
-
-            // Icono Apple
-            Image(
-                painter = painterResource(id = R.drawable.ic_apple),
-                contentDescription = "Registro con Apple",
-                modifier = Modifier.size(60.dp)
-            )
-        }
-
+        SocialMediaRow()
     }
 }

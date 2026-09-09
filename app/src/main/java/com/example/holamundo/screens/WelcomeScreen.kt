@@ -56,9 +56,18 @@ import androidx.compose.foundation.layout.Arrangement
 //trabaja con el row dividiendo el espacio entre los elementos para quq elas cosas qeden centradas y separadas
 import androidx.compose.foundation.layout.fillMaxWidth
 //indica qe la fila tiene ocuarpar el 100 del ancho de la pantalla
+
+/*
 import androidx.compose.material3.Button
 //componenten de compose para botones interactivos
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.holamundo.MainActivity
+*/
+import androidx.compose.foundation.background
+import com.example.holamundo.components.CustomButton
+import com.example.holamundo.components.TitleWelcome
+
 //permite cambiar  las propiedades del boton como fondo sombra o elevacion
 
 
@@ -67,7 +76,9 @@ import androidx.compose.material3.ButtonDefaults
 fun WelcomeScreen() {
     // Contenedor principal
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
@@ -102,15 +113,7 @@ fun WelcomeScreen() {
         ) {
 
             // TITULO
-            Text(
-                text = "Discover Your\nDream Job here",
-                color = Color(0xFF1F41BB),
-                fontSize = 35.sp,
-                fontWeight = FontWeight.SemiBold,
-                fontFamily = FontFamily(Font(R.font.poppins_semi_bold)),
-                lineHeight = 35.sp,
-                textAlign = TextAlign.Center
-            )
+            TitleWelcome()
 
             // ESPACIADOR
             Spacer(modifier = Modifier.height(16.dp))
@@ -136,6 +139,12 @@ fun WelcomeScreen() {
         ) {
 
             // Boton de LOGIN
+            CustomButton(
+                text = "Login",
+                onClick = {/*futuro loggeo*/},
+                width = 160.dp
+            )
+            /*
             Button(
                 onClick = { /* algun dia va a loggear */ },
                 modifier = Modifier
@@ -155,8 +164,18 @@ fun WelcomeScreen() {
                     lineHeight = 20.sp //altura de la linea
                 )
             }
-
+*/
             // BOTON DE REGISTER
+
+            CustomButton(
+                text = "Register",
+                onClick = { /* nav a RegisterScreen */ },
+                backgroundColor = Color.Transparent,
+                textColor = Color(0xFF1F41BB),
+                elevation = 0.dp,
+                width = 160.dp
+            )
+            /*
             Button(
                 onClick = { /*  */ },
                 modifier = Modifier
@@ -175,8 +194,9 @@ fun WelcomeScreen() {
                     fontFamily = FontFamily(Font(R.font.poppins_semi_bold)),
                     lineHeight = 20.sp
                 )
-            }
+            }*/
 
         }
     }
     }
+

@@ -64,7 +64,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 //trabaja en equipo con KeyboardType para aplicar esa configuración al teclado
 
 //***************** BOTONES Y FILAS *****************
-import androidx.compose.foundation.layout.Row
+/*import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
@@ -72,6 +72,12 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.layout.size
+ */
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.holamundo.components.CustomButton
+import com.example.holamundo.components.CustomTextField
+import com.example.holamundo.components.SocialMediaRow
+import com.example.holamundo.components.TitleWelcome
 
 @Composable
 fun LoginScreen() {
@@ -118,6 +124,15 @@ fun LoginScreen() {
         Spacer(modifier = Modifier.height(50.dp))
 
         // INPUT EMAIL
+        CustomTextField(
+            value = email,
+            onValueChange = {email = it},
+            placeholderText = "Email"
+        )
+
+        /*
+        TOD0 ESTO LO CONTIENE EL COMPONENTE
+
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
@@ -133,10 +148,18 @@ fun LoginScreen() {
                 unfocusedBorderColor = Color.Transparent, // Sin borde cuando esta inactivo
             )
         )
-
+*/
         Spacer(modifier = Modifier.height(30.dp))
 
         // INPUT PASSWORD
+        CustomTextField(
+            value = password,
+            onValueChange = {password = it},
+            placeholderText = "Password",
+            visualTransformation = PasswordVisualTransformation(),//hacemos qe se vea con puntitos
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)//interacccion con el teclado avisando qe es un password
+        )
+        /*
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
@@ -154,7 +177,7 @@ fun LoginScreen() {
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
         )
-
+*/
         Spacer(modifier = Modifier.height(24.dp))
 
         // FORGOT PASSWORD TEXT
@@ -171,6 +194,11 @@ fun LoginScreen() {
         Spacer(modifier = Modifier.height(30.dp))
 
         // BOTÓN PRINCIPAL SIGN IN
+        CustomButton(
+            text = "Sign in",
+            onClick = { /* Lógica de autenticación */ }
+        )
+        /*
         Button(
             onClick = { /* algun dia la logica de sesion */ },
             modifier = Modifier
@@ -189,7 +217,7 @@ fun LoginScreen() {
                 fontFamily = FontFamily(Font(R.font.poppins_semi_bold))
             )
         }
-
+*/
         Spacer(modifier = Modifier.height(30.dp))
 
         // TEXTO: Create new account
@@ -215,6 +243,10 @@ fun LoginScreen() {
         Spacer(modifier = Modifier.height(10.dp))
 
         // FILA DE REDES SOCIALES
+
+
+        SocialMediaRow()
+        /*
         Row(
             modifier = Modifier.width(200.dp), // Ancho de la caja
             horizontalArrangement = Arrangement.SpaceEvenly // genera espacios parejos
@@ -244,3 +276,6 @@ fun LoginScreen() {
 
     }
 }
+*/
+
+}}

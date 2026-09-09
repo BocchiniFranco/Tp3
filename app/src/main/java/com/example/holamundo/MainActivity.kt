@@ -16,12 +16,15 @@ import androidx.compose.foundation.layout.Box
 import com.example.holamundo.screens.LoginScreen
 import com.example.holamundo.screens.RegisterScreen
 //contenedor visual como una caja transparente
+
+
 import com.example.holamundo.screens.WelcomeScreen
 //llamamos a la nueva pantalla
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
             HolaMundoTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
