@@ -1,5 +1,6 @@
 package com.example.holamundo.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.runtime.Composable
 //convierte el kotlin en un componente visual
 import androidx.compose.foundation.layout.Column
@@ -78,7 +79,10 @@ import com.example.holamundo.components.CustomTextField
 import com.example.holamundo.components.SocialMediaRow
 
 @Composable
-fun RegisterScreen() {
+fun RegisterScreen(
+    onSignUp: () -> Unit,
+    onLogin: () -> Unit
+) {
 
     // ESTADOS
     var email by remember { mutableStateOf("") }
@@ -193,7 +197,8 @@ fun RegisterScreen() {
             color = Color.DarkGray,
             fontSize = 14.sp,
             fontFamily = FontFamily(Font(R.font.poppins_semi_bold)),
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            modifier = Modifier.clickable { onLogin() }
         )
 
         Spacer(modifier = Modifier.height(60.dp))

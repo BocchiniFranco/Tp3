@@ -72,15 +72,21 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.layout.size
- */
+
 import androidx.compose.ui.tooling.preview.Preview
+*/
+import androidx.compose.foundation.clickable
 import com.example.holamundo.components.CustomButton
 import com.example.holamundo.components.CustomTextField
 import com.example.holamundo.components.SocialMediaRow
 import com.example.holamundo.components.TitleWelcome
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(
+    onForgot: () -> Unit,
+    onSignIn: () -> Unit,
+    onRegister: () -> Unit
+) {
 
     // ESTADOS
     var email by remember { mutableStateOf("") }
@@ -226,7 +232,8 @@ fun LoginScreen() {
             color = Color.DarkGray, // Gris oscuro como en Figma
             fontSize = 14.sp,
             fontFamily = FontFamily(Font(R.font.poppins_semi_bold)),
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            modifier = Modifier.clickable { onRegister() }
         )
 
         Spacer(modifier = Modifier.height(60.dp))

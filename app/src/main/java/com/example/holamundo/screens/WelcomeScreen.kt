@@ -73,7 +73,10 @@ import com.example.holamundo.components.TitleWelcome
 
 //vista completa
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(
+    onLogin: () -> Unit,
+    onRegister: () -> Unit
+) {
     // Contenedor principal
     Column(
         modifier = Modifier
@@ -141,7 +144,7 @@ fun WelcomeScreen() {
             // Boton de LOGIN
             CustomButton(
                 text = "Login",
-                onClick = {/*futuro loggeo*/},
+                onClick = onLogin,
                 width = 160.dp
             )
             /*
@@ -169,7 +172,7 @@ fun WelcomeScreen() {
 
             CustomButton(
                 text = "Register",
-                onClick = { /* nav a RegisterScreen */ },
+                onClick = onRegister,
                 backgroundColor = Color.Transparent,
                 textColor = Color(0xFF1F41BB),
                 elevation = 0.dp,
